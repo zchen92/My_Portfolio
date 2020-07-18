@@ -22,6 +22,22 @@ export const FooterWrapper = styled.footer`
     }
 `;
 
+
+export const NavWrapper = styled.footer`
+    margin: 2rem 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    a {
+        color: black;
+    }
+`;
+
 //grid container
 export const GridContainer = styled.div`
     display:grid;
@@ -34,6 +50,10 @@ export const GridContainer = styled.div`
     img{
         width:100%;
     }
+     a{ 
+         color: black;
+         text-decoration: none;
+     }
 `;
 
 export const PullQuote = styled.div`

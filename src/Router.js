@@ -4,7 +4,7 @@ import { getContentfulProjects } from './Queries/index';
 import App from './App'
 import ProjectPage from './Components/ProjectPage'
 import About from './Components/About'
-
+import { NavWrapper } from './Styles/layout'
 
 const MyRouter = () => {
 
@@ -23,13 +23,10 @@ const MyRouter = () => {
 
     return (
         <Router>
-            <nav>
+            <NavWrapper>
                 <Link to='/'> Home </Link>
                 <Link to='/about'> About </Link>
-                {project.items && project.items.map((proj, i) => {
-                    return <Link to={`/${proj.fields.title}`}> {proj.fields.title} </Link>
-                })}
-            </nav>
+            </NavWrapper>
             <Switch>
                 {project.items && project.items.map((proj, i) => {
                     return <Route exact path={`/${proj.fields.title}`} render={() => <ProjectPage content={proj} />} />
