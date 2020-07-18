@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { getContentfulProjects } from './Queries/index';
 import App from './App'
 import ProjectPage from './Components/ProjectPage'
+import About from './Components/About'
+
 
 const MyRouter = () => {
 
@@ -23,6 +25,7 @@ const MyRouter = () => {
         <Router>
             <nav>
                 <Link to='/'> Home </Link>
+                <Link to='/about'> About </Link>
                 {project.items && project.items.map((proj, i) => {
                     return <Link to={`/${proj.fields.title}`}> {proj.fields.title} </Link>
                 })}
@@ -31,7 +34,7 @@ const MyRouter = () => {
                 {project.items && project.items.map((proj, i) => {
                     return <Route exact path={`/${proj.fields.title}`} render={() => <ProjectPage content={proj} />} />
                 })}
-
+                <Route path="/about" exact component={About} />
                 <Route path="/" exact component={App} />
 
             </Switch>
